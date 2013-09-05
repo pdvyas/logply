@@ -13,7 +13,7 @@ def assert_log_config(log_config):
 def get_stage(log_config, stage, **extra_args):
 	method, args = get_stage_method_and_args(log_config, stage)
 	args.update(extra_args)
-	data  = method.get(args)
+	data  = method.do(args)
 	return data
 
 def get_stage_method_and_args(log_config, stage):

@@ -1,7 +1,7 @@
 import psutil
 import time
 
-def get(kwargs):
+def do(kwargs):
 	params = ['total', 'used', 'free', 'percent']
 	ret = obj_to_dict(psutil.phymem_usage(), params, prefix='physical_memory_')
 	ret.update(obj_to_dict(psutil.virtmem_usage(), params, prefix='virtual_memory_'))
