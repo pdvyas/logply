@@ -1,10 +1,8 @@
 *.pyc
 *.DS_STORE
-/media/
-/static/
+*.swp
 *.egg-info
+logply/config.py
 /dist
 _build/
 
-node_modules/
-npm-debug.log
