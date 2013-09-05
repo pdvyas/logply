@@ -1,4 +1,11 @@
-def put(obj, params):
-	assert 'filename' in params
-	f = open(params.get('filename'), 'a')
-	f.write(obj)
+import json
+
+
+def do(kwargs):
+	assert 'filename' in kwargs
+	assert 'obj' in kwargs
+	obj = kwargs.get('obj')
+
+	with open(kwargs.get('filename'), 'a') as f:
+		f.write(json.dumps(obj))
+		f.write('\n')

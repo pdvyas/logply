@@ -14,10 +14,11 @@ def collect():
 
 		input_data = get_stage(log_config, 'input')
 		filtered_data = get_stage(log_config, 'filter', obj=input_data)
+		dispatched_data = get_stage(log_config, 'output', obj=filtered_data)
+
 		ret.append(json.dumps({log_name: filtered_data}))
 
 	return ret
 
 if __name__ == "__main__":
-	for line in collect():
-		print line
+	collect()
