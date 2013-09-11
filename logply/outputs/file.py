@@ -1,6 +1,5 @@
 import json
 
-
 def do(kwargs):
 	assert 'filename' in kwargs
 	assert 'obj' in kwargs

@@ -1,2 +1,2 @@
-def do(kwargs):
-	return kwargs.get('obj')
+def do(obj, kwargs):
+	return obj

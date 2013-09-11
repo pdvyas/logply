@@ -12,8 +12,8 @@ reobj = re.compile(
 	r'"(?P<referrer>[^"]*)"\s+'
 	r'"(?P<useragent>[^"]*)"$', re.MULTILINE)
 
-def do(kwargs):
-	line = kwargs.get('obj').rstrip()
+def do(obj, kwargs):
+	line = obj.rstrip()
 	match = reobj.match(line)
 	if match:
 		ret = match.groupdict()
