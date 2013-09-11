@@ -1,4 +1,5 @@
 import re
+from dateutil.parser import parse
 
 reobj = re.compile(
 	r'^(?P<client>\S+)\s+'
@@ -15,6 +16,8 @@ def do(kwargs):
 	line = kwargs.get('obj').rstrip()
 	match = reobj.match(line)
 	if match:
-		return match.groupdict()
+		ret = match.groupdict()
+        ret['datetime'] = unicode(parse(ret['datetime'], fuzzy=True))
+        return ret
 	return None
 
