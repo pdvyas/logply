@@ -9,10 +9,4 @@ def do(kwargs):
 
 	wn = WNClient(kwargs['url'], kwargs['username'], kwargs['password'])
 
-	ret = {}
-	if 'extra_kwargs' in kwargs:
-		ret.update(kwargs['extra_kwargs'])
-
-	ret.update(kwargs['obj'])
-
-	wn.insert([ret])
+	wn.insert(kwargs['obj'])
