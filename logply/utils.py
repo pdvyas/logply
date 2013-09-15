@@ -26,3 +26,14 @@ def apply_filter(obj, config):
 	method = import_module(config.get('method'))
 	args = config.get('args')
 	return method.do(obj, args)
+
+def json_handler(obj):
+	"""serialize non-serializable data for json"""
+	import datetime
+
+	# serialize date
+	if isinstance(obj, (datetime.date, datetime.timedelta, datetime.datetime)):
+		return unicode(obj)
+	else:
+		raise TypeError, """Object of type %s with value of %s is not JSON serializable""" % \
+			(type(obj), repr(obj))
